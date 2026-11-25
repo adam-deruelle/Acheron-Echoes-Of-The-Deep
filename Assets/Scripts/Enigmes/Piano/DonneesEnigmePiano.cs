@@ -137,7 +137,8 @@ namespace Acheron.Enigmes.Piano
         }
 
         /// <summary>
-        /// Remplit le tableau avec les 28 séquences d'origine.
+        /// Remplit le tableau avec les 28 séquences officielles.
+        /// ATTENTION : ce sont exactement les séquences imprimées dans le carnet papier : ne pas les modifier.
         /// Accessible par clic droit sur l'asset dans l'Inspector (menu "⋮").
         /// </summary>
         [ContextMenu("Remplir avec les séquences par défaut")]
@@ -148,14 +149,14 @@ namespace Acheron.Enigmes.Piano
 
             lignes = new List<LigneResistance>
             {
-                //          valeur   Rouge                      Jaune                     Vert                      Bleu
-                CreerLigne(100f,  new[] { Sol, Re, Sol, Mi }, new[] { Mi, Sol, Fa, Re }, new[] { Fa, Re, Fa, La }, new[] { Mi, Do, Sol, Re }),
-                CreerLigne(220f,  new[] { Si, La, Do, Fa },   new[] { Do, Si, Fa, Mi },  new[] { Sol, Do, Mi, Re }, new[] { Sol, La, Do, Fa }),
-                CreerLigne(330f,  new[] { La, Fa, Re, Si },   new[] { Sol, Mi, Re, Mi }, new[] { Sol, Fa, Sol, Re }, new[] { Do, La, Fa, Re }),
-                CreerLigne(470f,  new[] { La, Si, Do, Si },   new[] { Fa, Mi, Si, Fa },  new[] { Si, Sol, Mi, Si }, new[] { Mi, La, Sol, Fa }),
-                CreerLigne(1000f, new[] { Do, Mi, Fa, Si },   new[] { Do, Sol, Fa, Mi }, new[] { Si, Mi, Si, Do },  new[] { Re, Sol, Re, Mi }),
-                CreerLigne(2200f, new[] { La, Do, Si, Fa },   new[] { Fa, Si, Re, Fa },  new[] { Re, Si, Fa, Sol }, new[] { Mi, Fa, Sol, Fa }),
-                CreerLigne(4700f, new[] { Fa, Sol, Re, Mi },  new[] { Mi, Re, Si, La },  new[] { Re, Fa, Si, Do },  new[] { Do, Re, Fa, Re }),
+                //          valeur   Rouge                        Jaune                         Vert                          Bleu
+                CreerLigne(100f,  new[] { Do, Mi, Sol, Si },   new[] { Re, La, Fa, Do },    new[] { Mi, Si, Re, Sol },   new[] { Fa, Do, La, Mi }),
+                CreerLigne(220f,  new[] { Sol, Re, Si, Fa },   new[] { La, Mi, Do, Re },    new[] { Si, Fa, Mi, La },    new[] { Do, Sol, Re, Si }),
+                CreerLigne(330f,  new[] { Mi, Do, La, Re },    new[] { Fa, Sol, Si, Mi },   new[] { Sol, La, Do, Fa },   new[] { La, Re, Mi, Do }),
+                CreerLigne(470f,  new[] { Re, Fa, Si, Sol },   new[] { Mi, La, Re, Si },    new[] { Fa, Mi, Sol, Do },   new[] { Sol, Si, La, Re }),
+                CreerLigne(1000f, new[] { Si, Sol, Mi, Do },   new[] { Do, Fa, Re, La },    new[] { Re, Si, Do, Mi },    new[] { Mi, Fa, Sol, La }),
+                CreerLigne(2200f, new[] { La, Do, Fa, Mi },    new[] { Si, Re, Sol, Fa },   new[] { Do, Mi, Si, Re },    new[] { Re, Sol, Do, Fa }),
+                CreerLigne(4700f, new[] { Fa, Re, La, Si },    new[] { Sol, Do, Mi, Sol },  new[] { La, Si, Fa, Re },    new[] { Si, Mi, Do, Sol }),
             };
 
 #if UNITY_EDITOR

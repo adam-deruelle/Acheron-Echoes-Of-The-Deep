@@ -10,7 +10,7 @@ namespace Acheron.Enigmes.Piano
     public enum CouleurAnneau
     {
         Noir = 0,
-        Brun = 1,
+        Marron = 1,
         Rouge = 2,
         Orange = 3,
         Jaune = 4,
@@ -83,7 +83,7 @@ namespace Acheron.Enigmes.Piano
             switch (couleur)
             {
                 case CouleurAnneau.Noir: return new Color(0.02f, 0.02f, 0.02f);
-                case CouleurAnneau.Brun: return new Color(0.36f, 0.18f, 0.06f);
+                case CouleurAnneau.Marron: return new Color(0.36f, 0.18f, 0.06f);
                 case CouleurAnneau.Rouge: return new Color(0.85f, 0.05f, 0.05f);
                 case CouleurAnneau.Orange: return new Color(1f, 0.45f, 0f);
                 case CouleurAnneau.Jaune: return new Color(1f, 0.9f, 0f);
@@ -112,7 +112,7 @@ namespace Acheron.Enigmes.Piano
             switch (couleur)
             {
                 case CouleurAnneau.Noir: return "× 1";
-                case CouleurAnneau.Brun: return "× 10";
+                case CouleurAnneau.Marron: return "× 10";
                 case CouleurAnneau.Rouge: return "× 100";
                 case CouleurAnneau.Orange: return "× 1 000";
                 case CouleurAnneau.Jaune: return "× 10 000";
@@ -131,7 +131,7 @@ namespace Acheron.Enigmes.Piano
         {
             switch (couleur)
             {
-                case CouleurAnneau.Brun: return "± 1 %";
+                case CouleurAnneau.Marron: return "± 1 %";
                 case CouleurAnneau.Rouge: return "± 2 %";
                 case CouleurAnneau.Vert: return "± 0,5 %";
                 case CouleurAnneau.Bleu: return "± 0,25 %";
