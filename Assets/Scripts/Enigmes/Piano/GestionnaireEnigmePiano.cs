@@ -12,7 +12,7 @@ namespace Acheron.Enigmes.Piano
     ///   2. La résistance et le voyant s'affichent en conséquence.
     ///   3. Le joueur VR joue des notes : chaque bonne note fait avancer la séquence,
     ///      une mauvaise note la remet à zéro (flash rouge + buzzer).
-    ///   4. Séquence complète → manche réussie. Après la dernière manche → la porte s'ouvre.
+    ///   4. Séquence complète → manche réussie. Après la dernière manche → OnReussite (ouvre le coffre-fort).
     ///
     /// Pour brancher d'autres effets (sons, particules, autres salles...), utiliser les UnityEvents
     /// dans l'Inspector : OnNoteJouee, OnErreur, OnMancheReussie, OnReussite.
@@ -31,6 +31,7 @@ namespace Acheron.Enigmes.Piano
         [SerializeField] private TouchePiano[] touches = new TouchePiano[0];
         [SerializeField] private AffichageResistance affichageResistance;
         [SerializeField] private VoyantLumineux voyant;
+        [Tooltip("Optionnel : porte ouverte à la réussite (laisser vide si la récompense est seulement le coffre)")]
         [SerializeField] private PorteSortie porte;
 
         [Header("Sons")]

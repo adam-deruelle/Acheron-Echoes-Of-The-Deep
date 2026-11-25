@@ -108,6 +108,53 @@ namespace Acheron.Enigmes.Piano
             return cacheReussite;
         }
 
+        private static AudioClip cacheDeverrouillage;
+
+        /// <summary>
+        /// Déverrouillage du coffre-fort : deux "clacs" métalliques (le pêne qui recule)
+        /// suivis d'un petit grincement de charnière.
+        /// </summary>
+        public static AudioClip Deverrouillage()
+        {
+            if (cacheDeverrouillage != null) return cacheDeverrouillage;
+
+            const float duree = 1.1f;
+            int nbEchantillons = Mathf.RoundToInt(duree * FrequenceEchantillonnage);
+            float[] donnees = new float[nbEchantillons];
+            System.Random hasard = new System.Random(42); // toujours le même bruit
+
+            for (int i = 0; i < nbEchantillons; i++)
+            {
+                float t = (float)i / FrequenceEchantillonnage;
+                float echantillon = 0f;
+
+                // 2 clacs : un bruit très court + une résonance métallique aiguë qui s'éteint vite
+                float[] instantsClacs = { 0.05f, 0.22f };
+                foreach (float debut in instantsClacs)
+                {
+                    float tc = t - debut;
+                    if (tc < 0f || tc > 0.15f) continue;
+                    float bruit = (float)(hasard.NextDouble() * 2.0 - 1.0);
+                    echantillon += bruit * Mathf.Exp(-tc * 120f);                          // impact
+                    echantillon += 0.6f * Mathf.Sin(2f * Mathf.PI * 1800f * tc) * Mathf.Exp(-tc * 40f); // "ting"
+                }
+
+                // Grincement : fréquence qui monte doucement, avec un léger tremblement
+                float tg = t - 0.4f;
+                if (tg > 0f)
+                {
+                    float frequence = 300f + 250f * tg + 20f * Mathf.Sin(2f * Mathf.PI * 13f * tg);
+                    echantillon += 0.25f * Mathf.Sin(2f * Mathf.PI * frequence * tg) * Enveloppe(tg, duree - 0.4f, 0.1f, 0.3f);
+                }
+
+                donnees[i] = echantillon * Enveloppe(t, duree, 0.002f, 0.05f);
+            }
+
+            Normaliser(donnees, 0.7f);
+            cacheDeverrouillage = CreerClip("Deverrouillage", donnees);
+            return cacheDeverrouillage;
+        }
+
         // --------------------------------------------------------------------
         // Outils internes
         // --------------------------------------------------------------------

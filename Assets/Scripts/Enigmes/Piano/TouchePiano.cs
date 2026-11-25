@@ -40,6 +40,15 @@ namespace Acheron.Enigmes.Piano
                  "Évite qu'on joue les touches de loin avec le rayon des manettes.")]
         [SerializeField] private bool pokeUniquement = true;
 
+        [Tooltip("Temps minimum entre deux appuis, en secondes. Quand le doigt reste au niveau du seuil, " +
+                 "le poke peut s'activer/se désactiver plusieurs fois de suite : sans ce délai, la note serait " +
+                 "relancée en rafale (grésillement) et comptée plusieurs fois (buzzer d'erreur).")]
+        [SerializeField] private float delaiAntiRebond = 0.25f;
+
+        [Tooltip("Le doigt doit avoir quitté la touche depuis au moins ce temps (en secondes) pour qu'un nouvel appui compte. " +
+                 "Un doigt posé sur la touche qui 'tremble' au seuil ne rejoue donc pas la note.")]
+        [SerializeField] private float delaiRelachement = 0.1f;
+
         [Header("Événement")]
         [Tooltip("Déclenché à chaque appui sur la touche (le gestionnaire de l'énigme s'y abonne)")]
         public UnityEvent<NoteBlanche> OnToucheAppuyee = new UnityEvent<NoteBlanche>();
@@ -51,6 +60,8 @@ namespace Acheron.Enigmes.Piano
         private AudioSource sourceAudio;
         private Vector3 positionReposVisuel;
         private bool estEnfoncee;
+        private float instantDernierAppui = -1000f;
+        private float instantRelachement = -1000f;
 
         private void Awake()
         {
@@ -65,6 +76,8 @@ namespace Acheron.Enigmes.Piano
             // Son généré par code (voir GenerateurSon)
             sourceAudio.playOnAwake = false;
             sourceAudio.clip = GenerateurSon.Note(note);
+            // Pas d'effet Doppler : sinon la hauteur de la note varie quand le joueur bouge la tête
+            sourceAudio.dopplerLevel = 0f;
         }
 
         private void OnEnable()
@@ -97,6 +110,15 @@ namespace Acheron.Enigmes.Piano
                 return; // appui ignoré : ce n'est pas un doigt / une pointe de manette
             }
 
+            // Anti-rebond : la touche est déjà enfoncée, elle vient juste d'être jouée,
+            // ou le doigt ne l'a quittée qu'une fraction de seconde (il est resté posé dessus)
+            if (estEnfoncee
+                || Time.time - instantDernierAppui < delaiAntiRebond
+                || Time.time - instantRelachement < delaiRelachement)
+            {
+                return;
+            }
+
             Appuyer();
         }
 
@@ -106,6 +128,7 @@ namespace Acheron.Enigmes.Piano
             if (!interactable.isSelected)
             {
                 estEnfoncee = false;
+                instantRelachement = Time.time;
             }
         }
 
@@ -116,6 +139,7 @@ namespace Acheron.Enigmes.Piano
         public void Appuyer()
         {
             estEnfoncee = true;
+            instantDernierAppui = Time.time;
             sourceAudio.PlayOneShot(sourceAudio.clip);
             OnToucheAppuyee.Invoke(note);
         }
