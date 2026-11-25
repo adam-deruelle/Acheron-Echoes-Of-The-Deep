@@ -6478,7 +6478,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8326379454681083529}
         m_TargetAssemblyTypeName: Acheron.Enigmes.Piano.CoffreFort, Assembly-CSharp
-        m_MethodName: Ouvrir
+        m_MethodName: Deverrouiller
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12849,14 +12849,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 977507457}
     m_Modifications:
-    - target: {fileID: 3177604557795498024, guid: 4ea295c221e474945b37161c43e2cb3a, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4284927231
-      objectReference: {fileID: 0}
-    - target: {fileID: 3177604557795498024, guid: 4ea295c221e474945b37161c43e2cb3a, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
     - target: {fileID: 3555258647401296459, guid: 4ea295c221e474945b37161c43e2cb3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.6000001
@@ -12897,41 +12889,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7191766075364843426, guid: 4ea295c221e474945b37161c43e2cb3a, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4291620346
-      objectReference: {fileID: 0}
-    - target: {fileID: 7191766075364843426, guid: 4ea295c221e474945b37161c43e2cb3a, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 7261609146044764791, guid: 4ea295c221e474945b37161c43e2cb3a, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4284927231
-      objectReference: {fileID: 0}
-    - target: {fileID: 7261609146044764791, guid: 4ea295c221e474945b37161c43e2cb3a, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
     - target: {fileID: 8167224684689951024, guid: 4ea295c221e474945b37161c43e2cb3a, type: 3}
       propertyPath: m_Name
       value: Affiche_Marquise
-      objectReference: {fileID: 0}
-    - target: {fileID: 8738865116026595521, guid: 4ea295c221e474945b37161c43e2cb3a, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4291620346
-      objectReference: {fileID: 0}
-    - target: {fileID: 8738865116026595521, guid: 4ea295c221e474945b37161c43e2cb3a, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 8853966979372522078, guid: 4ea295c221e474945b37161c43e2cb3a, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4291620346
-      objectReference: {fileID: 0}
-    - target: {fileID: 8853966979372522078, guid: 4ea295c221e474945b37161c43e2cb3a, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
