@@ -18,7 +18,7 @@ public class GestionValeurManometre : MonoBehaviour
         vanne = objetVanne.GetComponent<GestionVannes>();
 
         Vector3 euler = transform.eulerAngles;
-        transform.eulerAngles = new Vector3(euler.x, euler.y - 1.75f, euler.z);
+        transform.eulerAngles = new Vector3(euler.x, euler.y, euler.z);
     }
 
     void Update()
