@@ -1,0 +1,11 @@
+Model Information:
+* title:	Elevator
+* source:	https://sketchfab.com/3d-models/elevator-584d237eeda04c79b1c50bc09ad00306
+* author:	sam_designs (https://sketchfab.com/sam_designs)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Elevator" (https://sketchfab.com/3d-models/elevator-584d237eeda04c79b1c50bc09ad00306) by sam_designs (https://sketchfab.com/sam_designs) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
